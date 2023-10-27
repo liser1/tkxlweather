@@ -8,6 +8,14 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
+  /*   server: {
+      proxy: {
+        '/phonearea.php': {
+          target: 'https://cx.shouji.360.cn',
+          changeOrigin: true,
+        }
+      }
+    }, */
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

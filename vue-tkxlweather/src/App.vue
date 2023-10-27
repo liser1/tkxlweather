@@ -1,32 +1,41 @@
 <template>
-  {{ massage }}
+  <Header></Header>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      massage: 'Hello World!'
-    };
-  },
-  watch: {},
-  computed: {},
-  methods: {
-    getmassage() {
-      axios({
-        url:'https://api.map.baidu.com/location/ip',
-        method:'get',
-        params:{
-          ak:'Vo5k5B39CMiFIXG2dzsmNAdIcZkwFX2U'
-        }.then(res=>this.massage=res)
-      })
+  import axios from 'axios'
+  import Header from './components/Header.vue'
+  export default {
+    components: {
+      Header
+    },
+    data() {
+      return {
+        massage: 'Hello World!'
+      };
+    },
+    watch: {},
+    computed: {},
+    methods: {
+
+    },
+    created() {
+
+    },
+    mounted() {
+
     }
-  },
-  created() {
-    
-  },
-  mounted() {}
-};
+  };
 </script>
-<style scoped>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
 </style>
