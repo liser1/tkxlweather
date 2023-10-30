@@ -7,18 +7,19 @@
       <p class="space">
         <img src="../assets/space.png" alt="">
         {{space.sheng+" "+space.shi}}
-        <input type="text" value="搜索城市天气">
+        <input type="text" placeholder="搜索城市天气">
       </p>
     </div>
   </div>
+  <div class="border"></div>
 </template>
 <script>
   export default {
     data() {
       return {
         space: {
-          sheng: '湖南省',
-          shi: '长沙市'
+          sheng: '湖南',
+          shi: '长沙'
         }
       }
     }
@@ -28,7 +29,6 @@
   .box {
     margin: 0 auto;
     width: 1200px;
-    background-color: #65b1fa;
     height: 65px;
     display: flex;
     align-items: center;
@@ -55,7 +55,16 @@
         background: rgba(255, 255, 255, 0.2);
         color: rgba(255, 255, 255, .7);
         border-radius: 15px;
+        outline: none;
+      }
+
+      input::placeholder {
+        color: rgba(255, 255, 255, .7);
       }
     }
+  }
+
+  .border {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
   }
 </style>
