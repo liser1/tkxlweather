@@ -7,7 +7,7 @@
   import Header from './components/Header.vue'
   export default {
     components: {
-      Header
+      Header,
     },
     data() {
       return {
@@ -37,6 +37,6 @@
   body {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to left bottom, rgb(85, 105, 255), rgb(120, 180, 250));
+    background: linear-gradient(to left, rgb(85, 105, 255), rgb(120, 192, 255));
   }
 </style>

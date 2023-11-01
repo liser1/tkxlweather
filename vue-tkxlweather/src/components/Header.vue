@@ -1,27 +1,52 @@
 <template>
   <div class="box">
     <div class="left">
-      <i>天空旋律</i>
+      <i>天空旋律气象站</i>
     </div>
     <div class="right">
-      <p class="space">
-        <img src="../assets/space.png" alt="">
-        {{space.sheng+" "+space.shi}}
+      <div class="space">
+        <span id="choosespace" @click="spaceclick">
+          <img src="../assets/space.png" alt="">
+          {{space.sheng+" "+space.shi}}
+        </span>
         <input type="text" placeholder="搜索城市天气">
-      </p>
+        <div v-show="isshow" class="child">
+          <CitySelector />
+        </div>
+      </div>
     </div>
   </div>
   <div class="border"></div>
 </template>
 <script>
+  import CitySelector from './CitySelector.vue'
   export default {
+    components: {
+      CitySelector
+    },
     data() {
       return {
+        isshow: false,
         space: {
           sheng: '湖南',
           shi: '长沙'
         }
       }
+    },
+    methods: {
+      spaceclick() {
+        this.isshow = !this.isshow
+        console.log(this.isshow);
+      },
+      otherclick(e) {
+        if (e.target !== document.querySelector('#selectbox') && e.target !== document.querySelector('#choosespace') && this.isshow) {
+          this.isshow = false
+          console.log(e.target);
+        }
+      }
+    },
+    mounted() {
+      document.addEventListener('click', this.otherclick)
     }
   }
 </script>
@@ -47,24 +72,39 @@
         margin-right: 5px;
       }
 
-      input {
-        width: 250px;
-        height: 20px;
-        padding: 5px 13px;
-        border: 0;
-        background: rgba(255, 255, 255, 0.2);
-        color: rgba(255, 255, 255, .7);
-        border-radius: 15px;
-        outline: none;
-      }
+      .space {
+        position: relative;
 
-      input::placeholder {
-        color: rgba(255, 255, 255, .7);
+        .child {
+          position: absolute;
+          top: 50px;
+        }
+
+        span {
+          cursor: pointer;
+        }
+
+        input {
+          width: 250px;
+          height: 20px;
+          padding: 5px 13px;
+          margin-left: 20px;
+          border: 0;
+          background: rgba(255, 255, 255, 0.2);
+          color: rgba(255, 255, 255, .7);
+          border-radius: 15px;
+          outline: none;
+        }
+
+        input::placeholder {
+          color: rgba(255, 255, 255, .7);
+        }
       }
     }
   }
 
   .border {
     border-bottom: 1px solid rgba(255, 255, 255, .2);
+    margin-bottom: 40px;
   }
 </style>
