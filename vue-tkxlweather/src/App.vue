@@ -1,13 +1,16 @@
 <template>
   <Header></Header>
+  <weathershownow />
 </template>
 
 <script>
   import axios from 'axios'
   import Header from './components/Header.vue'
+  import weathershownow from './components/WeatherShowNow.vue'
   export default {
     components: {
       Header,
+      weathershownow
     },
     data() {
       return {
