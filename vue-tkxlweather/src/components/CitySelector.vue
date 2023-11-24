@@ -1,58 +1,51 @@
 <template>
-  <div id="selectbox">
-    <select v-model="selectedprovince" @change="onProvinceChange">
-      <option v-for="province in province" :value="province.name">{{ province.name }}</option>
-    </select>
-    <select v-model="selectedCity" @change="onCityChange">
-      <option v-for="city in cities" :value="city.name">{{ city.name }}</option>
-    </select>
-    <select v-model="selectedCounty">
-      <option v-for="county in counties" :value="county">{{ county }}</option>
-    </select>
-  </div>
+  <el-cascader class="transparent-cascader" v-model="city" :options="options" :show-all-levels="false" />
 </template>
 <script>
-  import province from '../assets/city.js'
+  import options from '../assets/city.js'
   export default {
     data() {
       return {
-        province,
-        cities: [],
-        counties: [],
-        selectedprovince: null,
-        selectedCity: null,
-        selectedCounty: null,
+        options,
+        city: ''
       };
     },
-    methods: {
-      onProvinceChange() {
-        this.selectedCounty = null;
-        this.selectedCity = null;
-        this.cities = this.province.filter(item => item.name == this.selectedprovince)[0].city
-        console.log(this.selectedprovince);
-      },
-      onCityChange() {
-        this.selectedCounty = null;
-        this.counties = this.cities.filter(item => item.name == this.selectedCity)[0].districtAndCounty
+    props: {
+      space: String
+    },
+    watch: {
+      space(newvalue) {
+        console.log('地质变化了:' + newvalue);
+        this.city = newvalue
+        console.log(this.city);
       }
-
+    },
+    methods: {
+      optionchange() {
+        this.$emit('citychange', this.city)
+      }
+    },
+    created() {
+      this.city = this.space
     }
   };
 </script>
-<style scoped lang="less">
-  div {
-    width: 300px;
-    height: 100px;
-    background-color: white;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+<style>
+  .el-input__wrapper {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0;
 
-    select {
-      height: 25px;
-      width: 90px;
-      margin-left: 5px;
-    }
+  }
+
+  .el-input__inner {
+    color: white !important;
+    font-size: 16px;
+    width: 80px;
+    text-align: center;
+  }
+
+  .el-input__suffix {
+    display: none;
   }
 </style>
