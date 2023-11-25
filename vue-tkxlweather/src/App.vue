@@ -1,6 +1,7 @@
 <template>
   <Header></Header>
   <weathershownow />
+  <hourshow />
   <dayecharts />
 </template>
 
@@ -9,11 +10,13 @@
   import Header from './components/Header.vue'
   import weathershownow from './components/WeatherShowNow.vue'
   import dayecharts from './components/DayEcharts.vue'
+  import hourshow from './components/HourShow.vue'
 
   export default {
     components: {
       Header,
       weathershownow,
+      hourshow,
       dayecharts
     },
     data() {

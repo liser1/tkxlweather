@@ -16,10 +16,10 @@
             <div class="history" v-if="!information.length">
               <div>
                 <p>当前定位</p>
-                <span>
-                  <el-icon>
-                    <LocationFilled />
-                  </el-icon>
+                <el-icon>
+                  <LocationFilled />
+                </el-icon>
+                <span @click="dianji">
                   {{$store.state.gps}}
                 </span>
 
@@ -27,14 +27,11 @@
               <div>
                 <p>
                   历史记录
-                  <a>清除</a>
+                  <a @click="cleanall">清除</a>
                 </p>
-                <div><span>东莞市</span></div>
-                <div><span>东莞市</span></div>
-                <div><span>东莞市</span></div>
-                <div><span>东莞市</span></div>
-                <div><span>东莞市</span></div>
-                <div><span>东莞市</span></div>
+                <div v-for="city in historycities" :key="city">
+                  <span @click="dianji">{{city}}</span>
+                </div>
               </div>
             </div>
             <ul v-else-if="cities.length">
@@ -64,12 +61,27 @@
         space: '',
         information: '',
         cities: [],
+        historycities: [],
         key: true
       }
     },
     methods: {
       dianji(e) {
         this.space = e.target.innerText
+        const index = this.historycities.indexOf(e.target.innerText)
+        if (index != -1) {
+          this.historycities.splice(index, 1)
+        }
+        this.historycities.unshift(e.target.innerText)
+        localStorage.setItem('historycities', JSON.stringify(this.historycities))
+      },
+      getHistory() {
+        const history = localStorage.getItem('historycities')
+        this.historycities = history ? JSON.parse(history) : []
+      },
+      cleanall() {
+        this.historycities = []
+        localStorage.setItem('historycities', JSON.stringify(this.historycities))
       },
       show() {
         this.inputIsshow = true
@@ -99,36 +111,36 @@
       },
       areaInput: debounce(function () {
         //输入框数据处理
-        const information = this.information.trim().toLowerCase();
-        this.cities = [];
+        const information = this.information.trim().toLowerCase()
+        this.cities = []
         if (information !== '') {
           this.options.forEach(province => {
-            const matchedCities = this.searchCities([province], information);
+            const matchedCities = this.searchCities([province], information)
 
             for (let i = 0; i < matchedCities.length; i++) {
-              this.cities.push(matchedCities[i]);
+              this.cities.push(matchedCities[i])
             }
           });
         }
       }, 300),//加入lodash debounce节流
       searchCities(data, im) {
-        const matchingCities = [];
+        const matchingCities = []
         data.forEach(area => {
           if (area.children && area.children.length != 0) {
-            const matchingChildren = this.searchCities(area.children, im);
+            const matchingChildren = this.searchCities(area.children, im)
 
             if (matchingChildren.length > 0) {
-              matchingCities.push(...matchingChildren.map(a => a[0] ? [area.label + ',' + a[0], a[1]] : [area.label, a[1]]));
+              matchingCities.push(...matchingChildren.map(a => a[0] ? [area.label + ',' + a[0], a[1]] : [area.label, a[1]]))
             }
           } else if (area.label.includes(im)) {
-            matchingCities.push([null, area.label]);
+            matchingCities.push([null, area.label])
           }
-        });
-        return matchingCities;
+        })
+        return matchingCities
       },
       updatespace(value) {
         this.options.forEach(province => {
-          const matchedCities = this.searchCities([province], value);
+          const matchedCities = this.searchCities([province], value)
           for (let i = 0; i < matchedCities.length; i++) {
             if (matchedCities[i]) {
               this.space = matchedCities[i][1]
@@ -151,6 +163,8 @@
           }
         },
       )
+      this.getHistory()
+
     },
     watch: {
       space(newValue, oldValue) {
@@ -263,6 +277,9 @@
 
                 div {
                   width: 59px;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                   float: left;
                   margin-bottom: 10px;
                 }

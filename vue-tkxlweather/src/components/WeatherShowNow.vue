@@ -87,7 +87,7 @@
       this.changecolor()
     },
     computed: {
-      weaimg: function () {
+      weaimg() {
         return `../../public/icon/${this.$store.state.weatherdata.wea_img}.png`
       }
     }
