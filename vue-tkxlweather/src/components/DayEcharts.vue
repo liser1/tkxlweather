@@ -1,5 +1,16 @@
 <template>
-  <div id="hourecharts"></div>
+  <div class="hourechartsbox">
+    <div class="top">
+      <h1 class="title">24小时{{data}}曲线</h1>
+      <div class="selectButtonBox" @click="titlechange">
+        <router-link to="/dayweathershow/tem">温度</router-link>
+        <router-link to="/dayweathershow/wind">风力</router-link>
+        <router-link to="/dayweathershow/air">空气质量</router-link>
+      </div>
+    </div>
+    <router-view></router-view>
+  </div>
+
 </template>
 
 <script>
@@ -7,98 +18,83 @@
   export default {
     data() {
       return {
-        hours: [],
-        tems: [],
+        data: '温度',
       }
     },
-    mounted() {
-      this.hourecharts = echarts.init(document.querySelector('#hourecharts'))
-      this.echartsInit()
-      this.$store.watch(
-        (state) => state.weatherdata, // 监听的状态路径
-        (newValue, oldValue) => {
-          // 当状态发生变化时执行的操作
-          this.hours = []
-          this.tems = []
-          this.echartsInit()
-        },
-      )
-    },
     methods: {
-      echartsInit() {
-        for (let i = 0; i < 24; i++) {
-          this.hours.push(this.$store.state.weatherdata.hours[i].hours)
-          this.tems.push(this.$store.state.weatherdata.hours[i].tem)
-        }
-
-        this.hourecharts.setOption({
-          grid: {
-            left: '10%',
-            right: '10%',
-            top: '10%',
-            bottom: '30%'
-          },
-          xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: this.hours,
-            axisLine: {
-              lineStyle: {
-                color: 'white', // 设置 x 轴颜色为白色
-              }
-            },
-          },
-          yAxis: {
-            type: 'value',
-            splitLine: {
-              show: false
-            },
-            axisLabel: {
-              formatter: '{value}°C'
-            },
-            axisLine: {
-              lineStyle: {
-                color: 'white', // 设置 y 轴颜色为白色
-              }
-            },
-            max: Math.floor(Math.max(...this.tems) + 5),
-            min: Math.floor(Math.min(...this.tems) - 5),
-          },
-          series: [
-            {
-              data: this.tems,
-              type: 'line',
-              color: 'white',
-              areaStyle: {
-                color: 'white',
-                opacity: 0.3
-              },
-              symbol: 'emptyCircle',
-              symbolSize: 6,
-            }
-          ],
-          dataZoom: [{
-            type: 'slider',
-            show: true,
-            xAxisIndex: [0],
-            start: 0,
-            end: 50,
-          }],
-          tooltip: {
-            trigger: 'item',
-            formatter: `${this.$store.state.weatherdata.date}<br/>时间 : {b}<br/>温度 : {c}℃`
-          }
-        })
-      },
-
+      titlechange(e) {
+        this.data = e.target.innerText
+      }
     }
   }
 </script>
 
-<style>
-  #hourecharts {
-    margin: 0 auto;
+<style scoped lang="less">
+  .hourechartsbox {
+    box-sizing: border-box;
+    padding: 20px 30px 5px;
+    margin: 30px auto;
     width: 1200px;
-    height: 240px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, .2);
+
+    .top {
+      color: #344665;
+      margin-bottom: 20px;
+      width: 1140px;
+      height: 20px;
+
+      .title {
+        font-size: 18px;
+        float: left;
+        font-weight: 400;
+        height: 20px;
+        line-height: 20px;
+        margin-right: 10px;
+      }
+
+      .title::before {
+        content: '';
+        float: left;
+        margin-top: 9px;
+        margin-right: 10px;
+        width: 7px;
+        height: 7px;
+        background: #344665;
+        border-radius: 50%;
+      }
+
+      .selectButtonBox {
+        float: right;
+        margin-right: 30px;
+        display: flex;
+        width: 250px;
+        justify-content: space-between;
+
+        a {
+          line-height: 20px;
+          padding: 4px 15px;
+          border-radius: 15px;
+        }
+
+        span:hover {
+          background-color: rgb(150, 150, 150);
+          cursor: pointer;
+        }
+
+        .router-link-active {
+          background-color: rgb(150, 150, 150);
+        }
+      }
+    }
+
+
+
+    #hourecharts {
+      margin: 0 auto;
+      width: 1100px;
+      height: 260px;
+    }
   }
 </style>

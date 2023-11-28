@@ -1,7 +1,7 @@
 <template>
   <div class="hourshow">
     <div class="top">
-      <h1>逐小时预报</h1>
+      <h1 class="title">逐小时预报</h1>
       <span>数据来源易客云API</span>
       <div class="button">
         <el-icon @click="turnleft">
@@ -64,7 +64,7 @@
       width: 1140px;
       height: 20px;
 
-      h1 {
+      .title {
         font-size: 18px;
         font-weight: 400;
         height: 20px;
@@ -73,7 +73,7 @@
         margin-right: 10px;
       }
 
-      h1::before {
+      .title::before {
         content: '';
         float: left;
         margin-top: 9px;

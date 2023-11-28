@@ -1,23 +1,17 @@
 <template>
   <Header></Header>
-  <weathershownow />
-  <hourshow />
-  <dayecharts />
+  <router-view></router-view>
 </template>
 
 <script>
   import axios from 'axios'
   import Header from './components/Header.vue'
-  import weathershownow from './components/WeatherShowNow.vue'
-  import dayecharts from './components/DayEcharts.vue'
-  import hourshow from './components/HourShow.vue'
+  import dayweathershow from './components/Dayweathershow.vue'
 
   export default {
     components: {
       Header,
-      weathershownow,
-      hourshow,
-      dayecharts
+      dayweathershow
     },
     data() {
       return {
@@ -33,7 +27,7 @@
 
     },
     mounted() {
-      this.$store.dispatch('getweathershownow', '')
+      // this.$store.dispatch('getweathershownow', '')
     }
   };
 </script>
@@ -48,6 +42,15 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(to left, rgb(85, 105, 255), rgb(120, 192, 255));
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 
   .el-input__wrapper {
