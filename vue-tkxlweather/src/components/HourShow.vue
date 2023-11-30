@@ -4,6 +4,8 @@
       <h1 class="title">逐小时预报</h1>
       <span>数据来源易客云API</span>
       <div class="button">
+        <router-link to="/weekweathershow">周天气预报</router-link>
+        <router-link to="/weekweathershow">40天气预报</router-link>
         <el-icon @click="turnleft">
           <ArrowLeftBold />
         </el-icon>
@@ -95,8 +97,25 @@
       .button {
         float: right;
         display: flex;
-        width: 50px;
+        width: 280px;
         justify-content: space-between;
+        align-items: center;
+
+        a {
+          text-align: center;
+          width: 95px;
+          height: 24px;
+          line-height: 24px;
+          font-size: 12px;
+          color: #384c78;
+          border-radius: 12px;
+          background-color: #d6ddec;
+          border: 1px solid #bdc5ce;
+        }
+
+        a:hover {
+          background-color: #c0c9db;
+        }
 
         i:hover {
           cursor: pointer;

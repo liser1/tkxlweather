@@ -2,6 +2,10 @@
   <div class="weekbox">
     <div class="top">
       <h1 class="title">7日天气预报</h1>
+      <div class="button">
+        <router-link to="/dayweathershow/tem">今日天气预报</router-link>
+        <router-link to="/dayweathershow/tem">40日天气预报</router-link>
+      </div>
     </div>
     <ul class="weekweatherbox">
       <li>
@@ -14,9 +18,9 @@
         <p>
           {{$store.state.weekweatherdata.data[0].wea}}
         </p>
-        <img :src="`../../public/icon/${$store.state.weekweatherdata.data[0].wea_day_img}.png`">
+        <img :src="`/public/icon/${$store.state.weekweatherdata.data[0].wea_day_img}.png`">
         <div class="nothing"></div>
-        <img :src="`../../public/icon/${$store.state.weekweatherdata.data[0].wea_night_img}.png`">
+        <img :src="`/public/icon/${$store.state.weekweatherdata.data[0].wea_night_img}.png`">
         <p>
           湿度{{$store.state.weekweatherdata.data[0].humidity}}
         </p>
@@ -32,9 +36,9 @@
         <p>
           {{weekdata.wea}}
         </p>
-        <img :src="`../../public/icon/${weekdata.wea_day_img}.png`">
+        <img :src="`/public/icon/${weekdata.wea_day_img}.png`">
         <div class="nothing"></div>
-        <img :src="`../../public/icon/${weekdata.wea_night_img}.png`">
+        <img :src="`/public/icon/${weekdata.wea_night_img}.png`">
         <p>
           湿度{{weekdata.humidity}}%
         </p>
@@ -165,6 +169,30 @@
       width: 640px;
       height: 20px;
 
+      .button {
+        float: right;
+        display: flex;
+        width: 210px;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+          text-align: center;
+          width: 95px;
+          height: 24px;
+          line-height: 24px;
+          font-size: 12px;
+          color: #384c78;
+          border-radius: 12px;
+          background-color: #d6ddec;
+          border: 1px solid #bdc5ce;
+        }
+
+        a:hover {
+          background-color: #c0c9db;
+        }
+      }
+
       .title {
         font-size: 18px;
         font-weight: 400;
@@ -231,7 +259,7 @@
 
       }
 
-      li:nth-child(1) {}
+
 
     }
 

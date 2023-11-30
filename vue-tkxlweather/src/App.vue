@@ -1,16 +1,23 @@
 <template>
   <Header></Header>
+  <weathershownow />
   <router-view></router-view>
+  <Footer></Footer>
 </template>
 
 <script>
   import axios from 'axios'
   import Header from './components/Header.vue'
+  import weathershownow from './components/WeatherShowNow.vue'
+
+  import Footer from './components/Footer.vue'
   import dayweathershow from './components/Dayweathershow.vue'
 
   export default {
     components: {
       Header,
+      weathershownow,
+      Footer,
       dayweathershow
     },
     data() {

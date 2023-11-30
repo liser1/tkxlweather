@@ -3,6 +3,7 @@ import DayweatherShow from '../components/DayweatherShow.vue'
 import temecharts from '../components/dayweather/TemEcharts.vue'
 import airecharts from '../components/dayweather/AirEcharts.vue'
 import windecharts from '../components/dayweather/WindEcharts.vue'
+import weekweatherShow from '../components/WeekweatherShow.vue'
 
 const routes = [
   {
@@ -24,6 +25,12 @@ const routes = [
     ]
   },
   {
+    path: '/weekweatherShow',
+    component: weekweatherShow,
+    children: [
+    ]
+  },
+  {
     path: '/',
     redirect: '/dayweathershow/tem'
   }
@@ -31,6 +38,6 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes, // `routes: routes` 的缩写
+  routes,
 })
 export default router

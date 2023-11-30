@@ -23,7 +23,9 @@
     },
     methods: {
       titlechange(e) {
-        this.data = e.target.innerText
+        if (e.target.tagName === 'A') {
+          this.data = e.target.innerText;
+        }
       }
     }
   }
@@ -79,12 +81,12 @@
         }
 
         span:hover {
-          background-color: rgb(150, 150, 150);
+          background-color: #c0c9db;
           cursor: pointer;
         }
 
         .router-link-active {
-          background-color: rgb(150, 150, 150);
+          background-color: #c0c9db;
         }
       }
     }
