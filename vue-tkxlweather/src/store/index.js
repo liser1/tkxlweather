@@ -371,10 +371,6 @@ export default createStore({
           "level": "适宜",
           "tips": "天气不错，抓紧时机让衣物晒太阳吧。"
         },
-        "kaiche": {
-          "level": "",
-          "tips": ""
-        },
         "xiche": {
           "level": "适宜",
           "tips": "天气较好，适合擦洗汽车。"
@@ -1714,6 +1710,7 @@ export default createStore({
   },
   mutations: {
     updateweathershownow(state, data) {
+      delete data.zhishu.kaiche
       state.weatherdata = data
       console.log('调用了一次接口查询了' + data.city + '的天气');
       if (!state.gps) {

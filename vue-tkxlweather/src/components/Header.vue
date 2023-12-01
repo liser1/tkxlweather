@@ -153,6 +153,7 @@
 
     },
     mounted() {
+      this.updatespace(this.$store.state.weatherdata.city)
       this.$store.watch(
         (state) => state.weatherdata, // 监听的状态路径
         (newValue, oldValue) => {

@@ -85,6 +85,13 @@
     ,
     mounted() {
       this.changecolor()
+      this.$store.watch(
+        (state) => state.weatherdata, // 监听的状态路径
+        (newValue, oldValue) => {
+          // 当状态发生变化时执行的操作
+          this.changecolor()
+        },
+      )
     },
     computed: {
       weaimg() {
