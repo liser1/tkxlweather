@@ -2,10 +2,19 @@
   <div class="hourshow">
     <div class="top">
       <h1 class="title">逐小时预报</h1>
-      <span>数据来源易客云API</span>
+      <span>
+        <el-icon>
+          <Sunrise />
+        </el-icon>
+        {{$store.state.weatherdata.sunrise}}&nbsp;&nbsp;
+        <el-icon>
+          <Sunset />
+        </el-icon>
+        {{$store.state.weatherdata.sunset}}
+      </span>
       <div class="button">
         <router-link to="/weekweathershow">周天气预报</router-link>
-        <router-link to="/weekweathershow">40天气预报</router-link>
+        <router-link to="/monthweatherShow">40天气预报</router-link>
         <el-icon @click="turnleft">
           <ArrowLeftBold />
         </el-icon>
@@ -72,7 +81,7 @@
         height: 20px;
         line-height: 20px;
         float: left;
-        margin-right: 10px;
+        margin-right: 20px;
       }
 
       .title::before {
@@ -87,10 +96,11 @@
       }
 
       span {
-        height: 20px;
-        line-height: 20px;
+        height: 15px;
+        line-height: 15px;
+        margin-top: 5px;
         float: left;
-        font-size: 12px;
+        font-size: 14px;
         color: #8a9baf;
       }
 

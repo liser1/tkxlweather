@@ -1,26 +1,20 @@
 <template>
-  <div v-if="isload">
+  <div>
     <Header></Header>
-    <weathershownow />
     <router-view></router-view>
     <Footer></Footer>
-  </div>
-  <div v-else>
-    Loading...
   </div>
 </template>
 
 <script>
   import axios from 'axios'
   import Header from './components/Header.vue'
-  import weathershownow from './components/WeatherShowNow.vue'
   import Footer from './components/Footer.vue'
   import dayweathershow from './components/Dayweathershow.vue'
 
   export default {
     components: {
       Header,
-      weathershownow,
       Footer,
       dayweathershow
     },
@@ -32,25 +26,9 @@
     watch: {},
     computed: {},
     methods: {
-      async getdata() {
-        try {
-          await this.$store.dispatch('getweathershownow', '')
-          await this.delay(1000)
-          console.log('提前执行了');
-          this.isload = true
-        } catch (error) {
-          console.error('Error fetching weather data:', error)
-          // 处理错误
-        }
-      },
-      delay(ms) {
-        return new Promise(resolve => {
-          setTimeout(resolve, ms);
-        });
-      }
     },
     mounted() {
-      this.getdata()
+      this.$store.dispatch('getweathershownow', '')
     }
   };
 </script>

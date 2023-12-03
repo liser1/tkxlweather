@@ -30,7 +30,6 @@
           this.hours.push(this.$store.state.weatherdata.hours[i].hours)
           this.winds.push(this.$store.state.weatherdata.hours[i].win_speed.slice(0, -1))
         }
-        console.log(this.winds);
 
         this.windecharts.setOption({
           grid: {

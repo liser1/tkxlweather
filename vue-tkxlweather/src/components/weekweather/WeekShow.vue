@@ -4,7 +4,7 @@
       <h1 class="title">7日天气预报</h1>
       <div class="button">
         <router-link to="/dayweathershow/tem">今日天气预报</router-link>
-        <router-link to="/dayweathershow/tem">40日天气预报</router-link>
+        <router-link to="/monthweatherShow">40日天气预报</router-link>
       </div>
     </div>
     <ul class="weekweatherbox">
@@ -80,7 +80,6 @@
     },
     methods: {
       echartsInit() {
-        console.log('周天气改变了');
         for (let i = 0; i < 7; i++) {
           this.days.push(this.$store.state.weekweatherdata.data[i].week)
           this.maxtems.push(this.$store.state.weekweatherdata.data[i].tem1)

@@ -4,6 +4,7 @@ import temecharts from '../components/dayweather/TemEcharts.vue'
 import airecharts from '../components/dayweather/AirEcharts.vue'
 import windecharts from '../components/dayweather/WindEcharts.vue'
 import weekweatherShow from '../components/WeekweatherShow.vue'
+import monthweatherShow from '../components/MonthweatherShow.vue'
 
 const routes = [
   {
@@ -31,8 +32,14 @@ const routes = [
     ]
   },
   {
+    path: '/monthweatherShow',
+    component: monthweatherShow,
+    children: [
+    ]
+  },
+  {
     path: '/',
-    redirect: '/dayweathershow/tem'
+    redirect: '/weekweatherShow'
   }
 ]
 
