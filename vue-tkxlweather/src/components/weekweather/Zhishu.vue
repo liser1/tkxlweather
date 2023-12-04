@@ -15,7 +15,7 @@
       <div class="card" v-for="(value,key) in $store.state.weatherdata.zhishu" :key="key">
         <div class="massage">
           <div class="cardtop">
-            <img :src="`/public/icon/${key}.png`">
+            <img :src="`/icon/${key}.png`">
             <p>{{zhishudata[key]}} {{value.level}}</p>
           </div>
           <div class="cardbottom">

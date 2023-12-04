@@ -10,7 +10,7 @@
     </div>
     <div class="weabody">
       <div class="bodytop">
-        <img :src="`/public/icon/${$store.state.monthweatherdata.data[this.activeIndex].wea_img}.png`">
+        <img :src="`/icon/${$store.state.monthweatherdata.data[this.activeIndex].wea_img}.png`">
         <div class="imgright">
           <p>{{$store.state.monthweatherdata.data[this.activeIndex].wea}}</p>
           <span>{{$store.state.monthweatherdata.data[this.activeIndex].tem2}} ~

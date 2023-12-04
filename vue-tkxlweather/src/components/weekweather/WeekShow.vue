@@ -18,9 +18,9 @@
         <p>
           {{$store.state.weekweatherdata.data[0].wea}}
         </p>
-        <img :src="`/public/icon/${$store.state.weekweatherdata.data[0].wea_day_img}.png`">
+        <img :src="`/icon/${$store.state.weekweatherdata.data[0].wea_day_img}.png`">
         <div class="nothing"></div>
-        <img :src="`/public/icon/${$store.state.weekweatherdata.data[0].wea_night_img}.png`">
+        <img :src="`/icon/${$store.state.weekweatherdata.data[0].wea_night_img}.png`">
         <p>
           湿度{{$store.state.weekweatherdata.data[0].humidity}}
         </p>
@@ -36,9 +36,9 @@
         <p>
           {{weekdata.wea}}
         </p>
-        <img :src="`/public/icon/${weekdata.wea_day_img}.png`">
+        <img :src="`/icon/${weekdata.wea_day_img}.png`">
         <div class="nothing"></div>
-        <img :src="`/public/icon/${weekdata.wea_night_img}.png`">
+        <img :src="`/icon/${weekdata.wea_night_img}.png`">
         <p>
           湿度{{weekdata.humidity}}%
         </p>

@@ -4,7 +4,7 @@
       <p>{{$store.state.weatherdata.city}}<span id="update_time">最近{{$store.state.weatherdata.update_time}}更新</span></p>
       <div class="main">
         <div class="bigline">
-          <div id="tem">{{$store.state.weatherdata.tem+'°'}}</div>
+          <div id="tem">{{weanow+'°'}}</div>
           <div id="wea">{{$store.state.weatherdata.wea}}</div>
           <div id="airshow">
             <span id="air" @mouseenter="airmouseenter" @mouseleave="airmouseleave" :style="{backgroundColor: aircolor}">
@@ -96,7 +96,10 @@
     },
     computed: {
       weaimg() {
-        return `../../public/icon/${this.$store.state.weatherdata.wea_img}.png`
+        return `/icon/${this.$store.state.weatherdata.wea_img}.png`
+      },
+      weanow() {
+        return Math.min(this.$store.state.weatherdata.tem, this.$store.state.weatherdata.tem1)
       }
     }
   }
@@ -104,7 +107,7 @@
 <style scoped lang="less">
   .box {
     width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 80px;
     color: white;
     display: flex;
     justify-content: space-between;

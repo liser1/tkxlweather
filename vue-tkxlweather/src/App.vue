@@ -28,7 +28,7 @@
     methods: {
     },
     mounted() {
-      this.$store.dispatch('getweathershownow', '')
+      // this.$store.dispatch('getweathershownow', '')
     }
   };
 </script>
@@ -61,11 +61,23 @@
 
   }
 
-  .el-input__inner {
-    color: white !important;
-    font-size: 16px;
-    width: 80px;
-    text-align: center;
+  .right {
+    .el-input__inner {
+      color: white;
+      font-size: 16px;
+      width: 80px;
+      text-align: center;
+    }
+  }
+
+  .dateselect {
+    .el-input__wrapper {
+      font-size: 16px;
+    }
+
+    .el-input__inner {
+      color: #344665;
+    }
   }
 
   .el-input__suffix {

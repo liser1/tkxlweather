@@ -8,7 +8,7 @@
         <span>
           <img src="../assets/space.png" alt="">
           <!-- <CitySelector :space="space" /> -->
-          <el-cascader class="transparent-cascader" v-model="space" :options="options" :show-all-levels="false" />
+          <el-cascader style="color: white;" v-model="space" :options="options" :show-all-levels="false" />
         </span>
         <div id="cityselect">
           <input v-model="information" type="text" placeholder="搜索城市天气" @input="areaInput" @focus="show" @blur="hidden">
@@ -234,6 +234,7 @@
 
           .selectbox {
             position: absolute;
+            z-index: 1;
             top: 35px;
             right: 0;
             width: 256px;

@@ -4,7 +4,7 @@
       <h1 class="title">{{$store.state.weatherdata.city}}未来四十日天气预报</h1>
       <div class="button">
         <router-link to="/dayweathershow/tem">今日天气预报</router-link>
-        <router-link to="/monthweatherShow">40日天气预报</router-link>
+        <router-link to="/weekweatherShow">周天气预报</router-link>
       </div>
     </div>
     <ul class="weekname">
@@ -22,7 +22,7 @@
         @click="changecolor" :style="{ backgroundColor: activeIndex == index ? '#9ee3ff' : '' }">
         <div>
           <p class="date">{{day.date.slice(8) == '01' ? day.date.slice(5) : day.date.slice(-2)}}</p>
-          <img :src="`/public/icon/${day.wea_img}.png`" alt="">
+          <img :src="`/icon/${day.wea_img}.png`" alt="">
           <p>{{day.tem2}} ~ {{day.tem1}}℃</p>
           <p>{{day.wea}}</p>
           <p>{{day.win}}</p>

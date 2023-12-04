@@ -47,7 +47,7 @@
         this.translatedata = this.translatedata > -1200 ? this.translatedata - 400 : this.translatedata
       },
       getImgsrc(imgname) {
-        return `../../public/icon/${imgname}.png`
+        return `/icon/${imgname}.png`
       }
     },
     computed: {
@@ -61,7 +61,7 @@
   .hourshow {
     width: 1200px;
     height: 190px;
-    margin: 50px auto 0;
+    margin: 0 auto;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 14px 0 rgba(0, 0, 0, .2);
