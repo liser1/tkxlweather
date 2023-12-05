@@ -1,16 +1,23 @@
 <template>
   <div class="main">
-    <monthshow :activeIndex="activeIndex" @updateIndex="updateIndex" />
-    <clickshow :activeIndex="activeIndex" />
+    <div class="month">
+      <monthshow :activeIndex="activeIndex" @updateIndex="updateIndex" />
+      <clickshow :activeIndex="activeIndex" />
+    </div>
+    <historyshow />
   </div>
+
+
 </template>
 <script>
   import monthshow from './monthweather/MonthShow.vue'
   import clickshow from './monthweather/ClickShow.vue'
+  import historyshow from './historyweather/HistoryShow.vue'
   export default {
     components: {
       monthshow,
-      clickshow
+      clickshow,
+      historyshow,
     },
     data() {
       return {
@@ -28,7 +35,11 @@
   .main {
     width: 1200px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+
+    .month {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
 </style>

@@ -2513,6 +2513,63 @@ export default createStore({
           "win_night": ""
         }
       ]
+    },
+    historyweatherdata: {
+      "cityid": "101250102",
+      "date": "202312",
+      "city": "宁乡",
+      "cityEn": "ningxiang",
+      "avgbWendu": "11",
+      "avgyWendu": "8",
+      "maxWendu": "12(2023-12-01)",
+      "minWendu": "8(2023-12-03)",
+      "avgAqi": "66",
+      "minAqi": "45",
+      "minAqiDate": "(12月01日)",
+      "minAqiInfo": "优",
+      "minAqiLevel": "",
+      "maxAqi": "90",
+      "maxAqiDate": "(12月03日)",
+      "maxAqiInfo": "良",
+      "maxAqiLevel": "",
+      "data": [
+        {
+          "ymd": "2023-12-01",
+          "bWendu": "12°",
+          "yWendu": "8°",
+          "tianqi": "晴~多云",
+          "tianqi_img": "yun",
+          "fengxiang": "北风",
+          "fengli": "3级",
+          "aqi": "45",
+          "aqiInfo": "优",
+          "aqiLevel": "1"
+        },
+        {
+          "ymd": "2023-12-02",
+          "bWendu": "10°",
+          "yWendu": "9°",
+          "tianqi": "阴",
+          "tianqi_img": "yin",
+          "fengxiang": "东南风",
+          "fengli": "1级",
+          "aqi": "63",
+          "aqiInfo": "良",
+          "aqiLevel": "2"
+        },
+        {
+          "ymd": "2023-12-03",
+          "bWendu": "10°",
+          "yWendu": "8°",
+          "tianqi": "阴~小雨",
+          "tianqi_img": "yu",
+          "fengxiang": "北风",
+          "fengli": "1级",
+          "aqi": "90",
+          "aqiInfo": "良",
+          "aqiLevel": "2"
+        }
+      ]
     }
   },
   mutations: {
@@ -2541,8 +2598,8 @@ export default createStore({
         params: {
           unescape: 1,
           version: 'v62',
-          appid: '67713918',
-          appsecret: 'aG4DNVMD',
+          appid: '55586741',
+          appsecret: 'jaHI9knf',
           city: cityname
         }
       }).then(ref => {
@@ -2557,8 +2614,8 @@ export default createStore({
         params: {
           unescape: 1,
           version: 'v9',
-          appid: '67713918',
-          appsecret: 'aG4DNVMD',
+          appid: '55586741',
+          appsecret: 'jaHI9knf',
           city: cityname
         }
       }).then(ref => {
@@ -2573,8 +2630,8 @@ export default createStore({
         params: {
           unescape: 1,
           version: 'v3',
-          appid: '67713918',
-          appsecret: 'aG4DNVMD',
+          appid: '55586741',
+          appsecret: 'jaHI9knf',
           city: cityname
         }
       }).then(ref => {

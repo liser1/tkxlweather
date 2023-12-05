@@ -120,7 +120,6 @@
                 color: '#384c78',
                 fontSize: 18,
                 textBorderColor: 'transparent',
-
               }
             },
             {
@@ -136,7 +135,6 @@
                 color: '#384c78',
                 fontSize: 18,
                 textBorderColor: 'transparent',
-
               }
             }
           ],
