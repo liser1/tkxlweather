@@ -28,7 +28,7 @@
     methods: {
     },
     mounted() {
-      // this.$store.dispatch('getweathershownow', '')
+      // this.$store.dispatch('getWeatherShowNow', '')
     }
   };
 </script>

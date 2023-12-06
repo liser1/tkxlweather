@@ -107,7 +107,7 @@
       },
       citychange(cityname) {
         const citycommit = this.citycommit(cityname)
-        this.$store.dispatch('getweathershownow', citycommit)
+        this.$store.dispatch('getWeatherShowNow', citycommit)
       },
       areaInput: debounce(function () {
         //输入框数据处理

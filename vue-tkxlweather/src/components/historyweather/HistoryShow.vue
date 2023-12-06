@@ -83,9 +83,12 @@
     },
     methods: {
       datechange() {
-        this.year = +this.choosedate.slice(0, 4)
-        this.month = +this.choosedate.slice(5, 7)
-        console.log(this.year, this.month, this.choosedate)
+        if (+this.choosedate.slice(0, 4) != this.year || +this.choosedate.slice(5, 7) != this.month) {
+          this.year = +this.choosedate.slice(0, 4)
+          this.month = +this.choosedate.slice(5, 7)
+          this.$store.dispatch('getHistoryWeather', { city: this.$store.state.weatherdata.city, year: this.year, month: this.month })
+        }
+
 
       },
       disabledDate(time) {

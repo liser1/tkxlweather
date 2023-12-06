@@ -2587,11 +2587,15 @@ export default createStore({
       console.log('更新40日数据');
       state.monthweatherdata = data
     },
+    updatehistoryweatherdata(state, data) {
+      console.log('更新历史天气数据')
+      state.historyweatherdata = data
+    },
 
   },
   actions: {
     //获取当日天气数据
-    getweathershownow({ commit }, cityname) {
+    getWeatherShowNow({ commit }, cityname) {
       console.log('调用了');
       axios({
         url: 'http://v1.yiketianqi.com/api',
@@ -2639,6 +2643,26 @@ export default createStore({
           console.log(ref.data.errmsg)
         } else {
           commit('updateweathershowmonth', ref.data)
+        }
+      })
+    },
+    getHistoryWeather({ commit }, date) {
+      console.log('调用了');
+      axios({
+        url: 'http://v1.yiketianqi.com/api',
+        params: {
+          version: 'history',
+          appid: '55586741',
+          appsecret: 'jaHI9knf',
+          city: date.city,
+          year: date.year,
+          month: date.month,
+        }
+      }).then(ref => {
+        if (ref.data.errmsg) {
+          console.log(ref.data.errmsg)
+        } else {
+          commit('updatehistoryweatherdata', ref.data)
         }
       })
     },
