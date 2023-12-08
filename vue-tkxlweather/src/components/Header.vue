@@ -20,7 +20,7 @@
                   <LocationFilled />
                 </el-icon>
                 <span @click="dianji">
-                  {{$store.state.gps}}
+                  {{gps}}
                 </span>
 
               </div>
@@ -149,9 +149,6 @@
         })
       }
     },
-    created() {
-
-    },
     mounted() {
       this.$store.watch(
         (state) => state.weatherdata, // 监听的状态路径
@@ -165,6 +162,11 @@
       )
       this.getHistory()
 
+    },
+    computed: {
+      gps() {
+        return this.$store.state.gps + '市'
+      }
     },
     watch: {
       space(newValue, oldValue) {
