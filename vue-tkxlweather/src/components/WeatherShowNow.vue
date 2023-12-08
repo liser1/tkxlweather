@@ -7,8 +7,9 @@
           <div id="tem">{{weanow+'°'}}</div>
           <div id="wea">{{$store.state.weatherdata.wea}}</div>
           <div id="airshow">
-            <span id="air" @mouseenter="airmouseenter" @mouseleave="airmouseleave" :style="{backgroundColor: aircolor}">
-              {{$store.state.weatherdata.air+' '+$store.state.weatherdata.air_level}}</span>
+            <span id="air" @click="ToRoute" @mouseenter="airmouseenter" @mouseleave="airmouseleave"
+              :style="{backgroundColor: aircolor}">
+              {{$store.state.weatherdata.aqi.air+' '+$store.state.weatherdata.aqi.air_level}}</span>
             <div>
               <airshow v-show="airshadow" :aircolor="aircolor">
               </airshow>
@@ -65,11 +66,11 @@
     },
     methods: {
       changecolor() {
-        if (this.$store.state.weatherdata.air_level == '优') {
+        if (this.$store.state.weatherdata.aqi.air_level == '优') {
           this.aircolor = '#a3d765'
-        } else if (this.$store.state.weatherdata.air_level == '良') {
+        } else if (this.$store.state.weatherdata.aqi.air_level == '良') {
           this.aircolor = '#f0cc35'
-        } else if (this.$store.state.weatherdata.air_level == '轻度污染' || this.$store.state.weatherdata.air_level == '中度污染') {
+        } else if (this.$store.state.weatherdata.aqi.air_level == '轻度污染' || this.$store.state.weatherdata.air_level == '中度污染') {
           this.aircolor = '#f0b835'
         } else {
           this.aircolor = '#f03535'
@@ -80,6 +81,9 @@
       },
       airmouseleave() {
         this.airshadow = false
+      },
+      ToRoute() {
+        this.$router.push('/aqishow');
       }
     }
     ,

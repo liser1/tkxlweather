@@ -3,7 +3,7 @@
     <thead>
       <tr>
         <th :style="{backgroundColor:aircolor}" colspan="3">空气质量指数
-          {{$store.state.weatherdata.air+''+$store.state.weatherdata.air_level}}</th>
+          {{$store.state.weatherdata.aqi.air+''+$store.state.weatherdata.aqi.air_level}}</th>
       </tr>
     </thead>
     <tbody>

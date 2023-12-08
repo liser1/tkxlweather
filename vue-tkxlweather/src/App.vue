@@ -28,7 +28,7 @@
     methods: {
     },
     mounted() {
-      // this.$store.dispatch('getWeatherShowNow', '')
+      this.$store.dispatch('getWeatherShowNow', '')
     }
   };
 </script>
@@ -59,6 +59,11 @@
     box-shadow: none !important;
     padding: 0;
 
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
   }
 
   .right {
