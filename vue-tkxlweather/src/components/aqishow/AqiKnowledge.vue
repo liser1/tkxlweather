@@ -53,7 +53,7 @@
       </div>
       <div class="right">
         <div class="questionbox">
-          <p>-- 空气质量指数(AQI)对健康有什么影响?</p>
+          <p>-- 空气质量较差会有什么影响?</p>
           <span>恶劣的空气质量可能对人们的健康造成负面影响，包括呼吸道问题、心血管疾病和其他健康问题。长期暴露在污染的空气中可能会增加患上某些慢性疾病的风险。</span>
         </div>
         <div class="questionbox">
