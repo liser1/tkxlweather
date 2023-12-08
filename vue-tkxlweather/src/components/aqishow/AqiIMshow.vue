@@ -199,11 +199,13 @@
             margin-bottom: 15px;
 
             p {
-              margin-bottom: 10px;
+              margin-bottom: 15px;
               text-align: center;
             }
 
             span {
+              display: block;
+              margin-bottom: 5px;
               font-size: 14px;
             }
           }
