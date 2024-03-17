@@ -13,17 +13,17 @@
     <li>打包</li>
 </ul>
 
-## 克隆项目
+## 1.克隆项目
 
 ```bash
 git clone https://github.com/liser1/tkxlweather.git
 ```
 
-## 下载依赖与初始化
+## 2.下载依赖与初始化
 
-### 本项目依赖于Vue.js、需要Node.js以及npm包管理工具
+***本项目依赖于Vue.js、需要Node.js以及npm包管理工具***
 
-当你具备[Node.Js&&npm](https://nodejs.org/)后进入项目根目录执行
+***当你具备[Node.Js&&npm](https://nodejs.org/)后进入项目根目录执行***
 
 ```bash
 npm install
@@ -31,16 +31,22 @@ npm install
 npm install --force
 ```
 
-## 运行
+## 3.运行
 
 ```bash
 npm run dev
 ```
 
-## 打包
+## 4.打包
 
 ```bash
 npm run build
+```
+
+## 演示网站
+
+```web
+https://couldbebetter.buzz
 ```
 
 # License
