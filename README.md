@@ -45,9 +45,7 @@ npm run build
 
 ## 演示网站
 
-```web
-https://couldbebetter.buzz
-```
+***[天空旋律气象站](https://www.couldbebetter.buzz/)***
 
 # License
 
