@@ -47,6 +47,3 @@ npm run build
 
 ***[天空旋律气象站](https://www.couldbebetter.buzz/)***
 
-# License
-
-[MIT](https://opensource.org/license/mit)
